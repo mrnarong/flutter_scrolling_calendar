@@ -21,21 +21,37 @@ int getDaysInMonth(int year, int month) {
 
 /// Gets the name of the given month by its number,
 /// using either the supplied or default name.
-String getMonthName(int month, {List<String> monthNames}) {
-  final List<String> names = monthNames ??
-      <String>[
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ];
+/// Modified: 2021-07-01
+/// By: Narong Chanthapho
+/// - Add Thai month name
+String getMonthName(int month, {String lang, bool isLongMonthName, List<String> monthNames}) {
+  final Map<String, Map<String, List<String>>> months =  <String, Map<String, List<String>>>{
+    'en': <String, List<String>>{
+      'short': <String>[
+        'Jan', 'Feb', 'Mar', 'Apr',
+        'May', 'Jun', 'Jul', 'Aug',
+        'Sep', 'Oct', 'Nov', 'Dec',
+      ],
+      'long': <String>[
+        'January', 'February', 'March', 'April',
+        'May', 'June', 'July', 'August',
+        'September', 'October', 'November', 'December',
+      ]
+    },
+    'th': <String, List<String>>{
+      'short': <String>[
+        'ม.ค.', 'ก.พ', 'มี.ค.', 'เม.ย.',
+        'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.',
+        'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.',
+      ],
+      'long': <String>[
+        'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน',
+        'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม',
+        'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม',
+      ]
+    }
+
+  };
+  final List<String> names = monthNames ?? months[lang][isLongMonthName?'long':'short'];
   return names[month - 1];
 }

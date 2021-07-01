@@ -13,6 +13,8 @@ class MonthView extends StatelessWidget {
     @required this.currentDateColor,
     this.highlightedDates,
     this.highlightedDateColor,
+    this.lang,
+    this.isLongMonthName,
     this.monthNames,
     this.onTap,
     this.titleStyle,
@@ -25,6 +27,8 @@ class MonthView extends StatelessWidget {
   final Color currentDateColor;
   final List<DateTime> highlightedDates;
   final Color highlightedDateColor;
+  final String lang;
+  final bool isLongMonthName;
   final List<String> monthNames;
   final Function onTap;
   final TextStyle titleStyle;
@@ -86,6 +90,8 @@ class MonthView extends StatelessWidget {
         children: <Widget>[
           MonthTitle(
             month: month,
+            lang: lang,
+            isLongMonthName: isLongMonthName,
             monthNames: monthNames,
             style: titleStyle,
           ),

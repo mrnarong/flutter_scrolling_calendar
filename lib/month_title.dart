@@ -4,6 +4,8 @@ import 'package:scrolling_years_calendar/utils/dates.dart';
 class MonthTitle extends StatelessWidget {
   const MonthTitle({
     @required this.month,
+    this.lang,
+    this.isLongMonthName,
     this.monthNames,
     this.style = const TextStyle(
       fontSize: 18,
@@ -11,6 +13,8 @@ class MonthTitle extends StatelessWidget {
     ),
   });
 
+  final String lang ;
+  final bool isLongMonthName;
   final int month;
   final List<String> monthNames;
   final TextStyle style;
@@ -19,7 +23,7 @@ class MonthTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Text(
-        getMonthName(month, monthNames: monthNames),
+        getMonthName(month, lang: lang, isLongMonthName: isLongMonthName, monthNames: monthNames),
         style: style,
         maxLines: 1,
         overflow: TextOverflow.fade,
