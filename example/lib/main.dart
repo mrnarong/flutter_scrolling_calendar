@@ -37,22 +37,27 @@ class HomePage extends StatelessWidget {
           currentDateColor: Colors.blue,
 
           // Optional parameters
+          // lang, yearEpochal, isLongMonthName -> New options
+          lang: 'th',
+          yearEpochal: 'CE',
+          isLongMonthName: true,
+
           highlightedDates: getHighlightedDates(),
           highlightedDateColor: Colors.deepOrange,
-          monthNames: const <String>[
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec',
-          ],
+          // monthNames: const <String>[ // optional monthNames
+          //   'Jan',
+          //   'Feb',
+          //   'Mar',
+          //   'Apr',
+          //   'May',
+          //   'Jun',
+          //   'Jul',
+          //   'Aug',
+          //   'Sep',
+          //   'Oct',
+          //   'Nov',
+          //   'Dec',
+          // ],
           onMonthTap: (int year, int month) => print('Tapped $month/$year'),
           monthTitleStyle: TextStyle(
             fontSize: 16,
